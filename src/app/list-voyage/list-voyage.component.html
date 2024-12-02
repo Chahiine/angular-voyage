@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Destination</th>
+    <th>Depart</th>
+    <th>Arrive</th>
+    <th>Places</th>
+    <th>Views</th>
+  </tr>
+  <tr *ngFor="let voyage of Voyage">
+    <td>{{ voyage.id }}</td>
+    <td>{{ voyage.description }}</td>
+    <td>{{ voyage.depart }}</td>
+    <td>{{ voyage.arrivee }}</td>
+    <td>{{ voyage.nb_place }}</td>
+    <td>{{ voyage.nb_view }}</td>
+    <td *ngIf="voyage.nb_place > 0">
+      <a (click)="reserve(voyage)">reserver</a>
+    </td>
+    <td><a [routerLink]="['/details/', voyage.id]">Details</a></td>
+  </tr>
+</table>
